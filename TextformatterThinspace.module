@@ -14,7 +14,7 @@ class TextformatterThinspace extends Textformatter
     {
         return array(
             'title'     => __('Thin Space'),
-            'version'   => 1,
+            'version'   => 100,
             'summary'   => __("Replace repeated consecutive whitespace characters with just a single character."),
             'author'    => 'Netcarver',
         );
