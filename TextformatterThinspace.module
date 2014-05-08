@@ -16,9 +16,6 @@ class TextformatterThinspace extends Textformatter
             'title'     => __('Thin Space'),
             'version'   => 1,
             'summary'   => __("Replace repeated consecutive whitespace characters with just a single character."),
-            'permanent' => false,
-            'singluar'  => false,
-            'autoload'  => false,
             'author'    => 'Netcarver',
         );
     }
@@ -36,6 +33,5 @@ class TextformatterThinspace extends Textformatter
     {
         $str = preg_replace('-[ ]{2,}-u', ' ', $str);
         $str = preg_replace("-[\n]{2,}-u", "\n", $str);
-        return $this;
     }
 }
