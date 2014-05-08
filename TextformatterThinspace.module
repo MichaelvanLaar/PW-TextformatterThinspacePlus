@@ -6,18 +6,10 @@
  * Replaces multiple consecutive ascii space or newline characters with just a single instance.
  *
  * @copyright Copyright (c) 2012, Netcarver (https://github.com/netcarver)
- *
  */
 
 class TextformatterThinspace extends Textformatter
 {
-
-    /**
-     **/
-    protected $data = array(
-    );
-
-
     public static function getModuleInfo()
     {
         return array(
