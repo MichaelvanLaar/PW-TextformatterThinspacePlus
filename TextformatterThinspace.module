@@ -31,7 +31,7 @@ class TextformatterThinspace extends Textformatter
      **/
     public function format(&$str)
     {
-        $str = preg_replace('-[ ]{2,}-u', ' ', $str);
-        $str = preg_replace("-[\n]{2,}-u", "\n", $str);
+        $str = preg_replace('/(?:\x{20}|\x{a0}){2,}/u', ' ', $str);
+        $str = preg_replace("/\n{2,}/u", "\n", $str);
     }
 }
