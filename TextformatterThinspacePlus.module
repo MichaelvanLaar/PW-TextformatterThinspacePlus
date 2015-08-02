@@ -4,8 +4,7 @@
  * ProcessWire Thinspace Plus Module
  *
  * “Flatten” a text by replacing newline characters (as well as repeated
- * consecutive whitespace characters) with just one space character – and also
- * strip any whitespace or line breaks at the beginning and end of the text.
+ * consecutive whitespace characters) with just one space character.
  * Extends Netcarver’s original Thinspace module.
  *
  * @author    Netcarver
@@ -26,8 +25,8 @@ class TextformatterThinspacePlus extends Textformatter
     {
         return array(
             'title'     => __('Thinspace Plus'),
-            'version'   => 100,
-            'summary'   => __("“Flatten” a text by replacing newline characters (as well as repeated consecutive whitespace characters) with just one space character – and also strip any whitespace or line breaks at the beginning and end of the text. Extends Netcarver’s original Thinspace module."),
+            'version'   => 101,
+            'summary'   => __("“Flatten” a text by replacing newline characters (as well as repeated consecutive whitespace characters) with just one space character. Extends Netcarver’s original Thinspace module."),
             'author'    => 'Michael van Laar',
             'href' => 'https://github.com/MichaelvanLaar/PW-TextformatterThinspacePlus',
         );
@@ -44,7 +43,7 @@ class TextformatterThinspacePlus extends Textformatter
      **/
     public function format(&$str)
     {
-        $str = trim(preg_replace('/\n/u', ' ', $str));
+        $str = preg_replace('/\n/u', ' ', $str);
         $str = preg_replace('/(?:\x{20}|\x{a0}){2,}/u', ' ', $str);
         $str = preg_replace("/\n{2,}/u", "\n", $str);
     }
