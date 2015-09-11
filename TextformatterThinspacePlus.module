@@ -10,7 +10,7 @@
  * @author    Netcarver
  * @author    Michael van Laar <michael@van-laar.de>
  * @copyright Copyright of original Thinspace module (c) 2012, Netcarver (https://github.com/netcarver)
- * 
+ *
  * ProcessWire 2.x
  * Copyright (C) 2014 by Ryan Cramer
  * Licensed under GNU/GPL v2, see LICENSE.TXT
@@ -25,7 +25,7 @@ class TextformatterThinspacePlus extends Textformatter
     {
         return array(
             'title'     => __('Thinspace Plus'),
-            'version'   => 101,
+            'version'   => 102,
             'summary'   => __("“Flatten” a text by replacing newline characters (as well as repeated consecutive whitespace characters) with just one space character. Extends Netcarver’s original Thinspace module."),
             'author'    => 'Michael van Laar',
             'href' => 'https://github.com/MichaelvanLaar/PW-TextformatterThinspacePlus',
@@ -43,8 +43,6 @@ class TextformatterThinspacePlus extends Textformatter
      **/
     public function format(&$str)
     {
-        $str = preg_replace('/\n/u', ' ', $str);
-        $str = preg_replace('/(?:\x{20}|\x{a0}){2,}/u', ' ', $str);
-        $str = preg_replace("/\n{2,}/u", "\n", $str);
+        $str = trim(preg_replace('/\s+/', ' ', $str));
     }
 }
